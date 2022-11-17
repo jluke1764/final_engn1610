@@ -1,0 +1,3 @@
+[submodule "EndoscopyDepthEstimation-Pytorch"]
+	path = EndoscopyDepthEstimation-Pytorch
+	url = git@github.com:jluke1764/EndoscopyDepthEstimation-Pytorch.git
