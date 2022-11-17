@@ -1,0 +1,17 @@
+
+torch
+torchvision
+opencv-python
+numpy
+tqdm
+pathlib
+torchsummary
+tensorboardX
+albumentations
+argparse
+plyfile
+pyyaml
+datetime
+shutil
+matplotlib
+tensorflow-gpu
