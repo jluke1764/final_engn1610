@@ -10,8 +10,7 @@ tensorboardX
 albumentations
 argparse
 plyfile
-pyyaml
+pyyaml==5.4.1
 datetime
-shutil
 matplotlib
 tensorflow-gpu
