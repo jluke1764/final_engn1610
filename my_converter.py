@@ -83,7 +83,6 @@ def get_num_from_frame_filename(filename) :
 
 def read_images_txt(observation_file_path):
 
-    observation_file_path = "/Users/jackieluke/Documents/Brown Fall 2022/ENGN_1610/final_project/Colon-IV_1/sparse/0/images.txt"
     # Read images.txt
     f_observation = open(str(observation_file_path), "r")
 
@@ -139,8 +138,10 @@ def write_view_indexes_per_point(point_cloud_file_path, observation_file_path, v
         image_id_2d_obs_id_pair = point_cloud_dict[point_3d_id]["track"]
 
         image_index_list = list()
+        # print(images_dict)
         for i in range(image_id_2d_obs_id_pair.shape[0]):
             image_id = image_id_2d_obs_id_pair[i, 0]
+            print(image_id)
             image_index_list.append(images_dict[str(image_id)]["frame_index"])
 
         image_index_list.sort()
@@ -156,7 +157,7 @@ def write_view_indexes_per_point(point_cloud_file_path, observation_file_path, v
         f_visible_view_indexes.write("{}\n".format(image_index))
     f_visible_view_indexes.close()
 
-def write_yaml():
+def write_yaml(observation_file_path, camera_trajectory_path):
     # read images.txt
     images_dict, visible_view_index_list, frame_index_dict = read_images_txt(observation_file_path)
 
@@ -188,6 +189,35 @@ def write_yaml():
     yaml.dump(camera_trajectory_dict, f_camera_trajectory)
     f_camera_trajectory.close()
 
+def convert_sparse_data(input_path, output_path):
+    # input file paths
+    camera_file_path = input_path +"/"+ "cameras.txt"
+    observation_file_path = input_path +"/"+ "images.txt"
+
+    # point_cloud_file_path = "/Users/jackieluke/Documents/Brown Fall 2022/ENGN_1610/final_project/Colon-IV_1/sparse/0/points3D.txt"
+    point_cloud_file_path = input_path +"/"+ "points3D.txt"
+
+    # output file paths
+    ply_file_path = output_path +"/"+ "structure.ply"
+    view_indexes_per_point_path = output_path +"/"+ "view_indexes_per_point"
+    camera_intrinsics_per_view_path = output_path +"/"+ "camera_intrinsics_per_view"
+    visible_view_indexes_path = output_path +"/"+ "visible_view_indexes"
+    selected_indexes_path = output_path +"/"+ "selected_indexes"
+    camera_trajectory_path = output_path +"/"+ "motion.yaml"
+ 
+   
+    write_camera_intrinsics_from_camera(camera_file_path, camera_intrinsics_per_view_path)
+
+    # point_cloud_file_path = "/Users/jackieluke/Documents/Brown Fall 2022/ENGN_1610/final_project/Colon-IV_1/sparse/0/points3D.txt"
+    # ply_file_path = "/Users/jackieluke/Documents/Brown Fall 2022/ENGN_1610/final_project/Colon-IV_1/my_conversion/ply.txt"
+    write_ply_from_point_cloud(point_cloud_file_path, ply_file_path)
+
+    # observation_file_path = "/Users/jackieluke/Documents/Brown Fall 2022/ENGN_1610/final_project/Colon-IV_1/sparse/0/images.txt"
+    # view_indexes_per_point_path = result_path + "/view_indices_per_point.txt"
+    write_view_indexes_per_point(point_cloud_file_path, observation_file_path, view_indexes_per_point_path, visible_view_indexes_path)
+    write_yaml(observation_file_path, camera_trajectory_path)
+
+    print("done")
 
 
 
@@ -196,9 +226,10 @@ def write_yaml():
 
 
 if __name__ == "__main__":
-    input_path = "/Users/jackieluke/Documents/Brown Fall 2022/ENGN_1610/final_project/Colon-IV_1/sparse/0"
-    output_path = "/Users/jackieluke/Documents/Brown Fall 2022/ENGN_1610/final_project/Colon-IV_1/my_conversion/"
+    input_path = "/Users/jackieluke/Documents/Brown Fall 2022/ENGN_1610/final_project/UnityCam/Stomach/sparse/0"
+    output_path = "/Users/jackieluke/Documents/Brown Fall 2022/ENGN_1610/final_project/UnityCam/Stomach/sparse/0/output_folder"
 
+    
     # input file paths
     camera_file_path = input_path +"/"+ "cameras.txt"
     observation_file_path = input_path +"/"+ "images.txt"

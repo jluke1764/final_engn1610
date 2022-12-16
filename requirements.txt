@@ -12,5 +12,11 @@ argparse
 plyfile
 pyyaml==5.4.1
 datetime
-matplotlib
-tensorflow-gpu
+matplotlib==3.2
+tensorflow
+tqdm
+torchsummary
+torch
+tensorboardX
+albumentations
+torchvision
