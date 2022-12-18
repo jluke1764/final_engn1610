@@ -18,5 +18,6 @@ tqdm
 torchsummary
 torch
 tensorboardX
-albumentations
+albumentations==0.4.0
 torchvision
+tensorflow-gpu
