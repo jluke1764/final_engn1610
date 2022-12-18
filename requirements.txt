@@ -7,7 +7,6 @@ tqdm
 pathlib
 torchsummary
 tensorboardX
-albumentations
 argparse
 plyfile
 pyyaml==5.4.1

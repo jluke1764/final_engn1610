@@ -1,0 +1,261 @@
+## SLURM PROLOG ###############################################################
+##    Job ID : 7169959
+##  Job Name : jl_cuda_batch.sh
+##  Nodelist : gpu1201
+##      CPUs : 1
+##   Mem/CPU : 2800 MB
+## Directory : /gpfs/data/engn1610/jluke/1610/final_engn1610
+##   Job Started : Sat Dec 17 21:05:37 EST 2022
+###############################################################################
+module: loading 'cuda/7.5.18'
+gcc: error: vecadd.cu: No such file or directory
+gcc: warning: ‘-x c++’ after last input file has no effect
+gcc: fatal error: no input files
+compilation terminated.
+/var/spool/slurmd/job7169959/slurm_script: line 20: ./vecadd: No such file or directory
+Tensorboard visualization at /gpfs/data/engn1610/jluke/1610/files_in_use/EndoscopyDepthEstimation-Pytorch-master/example_training_data_root/depth_estimation_train_run_12_17_21_5_test_id_[_1_]
+JL folder lsit
+[PosixPath('/gpfs/data/engn1610/jluke/1610/files_in_use/EndoscopyDepthEstimation-Pytorch-master/example_training_data_root/bag_1/_start_004259_end_004629_stride_25_segment_13')]
+Largest image size is:  256 320
+Start pre-processing dataset...
+6 points eliminated
+sequence /gpfs/data/engn1610/jluke/1610/files_in_use/EndoscopyDepthEstimation-Pytorch-master/example_training_data_root/bag_1/_start_004259_end_004629_stride_25_segment_13 finished
+0th process finished
+/gpfs/data/engn1610/jluke/1610/files_in_use/EndoscopyDepthEstimation-Pytorch-master/utils.py:230: YAMLLoadWarning: calling yaml.load() without Loader=... is deprecated, as the default Loader is unsafe. Please read https://msg.pyyaml.org/load for full details.
+  doc = yaml.load(stream)
+/users/jluke/.local/lib/python3.6/site-packages/torch/utils/data/dataloader.py:481: UserWarning: This DataLoader will create 8 worker processes in total. Our suggested max number of worker in current system is 1, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  cpuset_checked))
+/users/jluke/.local/lib/python3.6/site-packages/torch/functional.py:445: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at  ../aten/src/ATen/native/TensorShape.cpp:2157.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+Waiting for 0th process to complete
+Pre-processing complete.
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+            Conv2d-1         [-1, 48, 256, 320]           1,344
+       BatchNorm2d-2         [-1, 48, 256, 320]              96
+              ReLU-3         [-1, 48, 256, 320]               0
+            Conv2d-4         [-1, 12, 256, 320]           5,196
+       BatchNorm2d-5         [-1, 60, 256, 320]             120
+              ReLU-6         [-1, 60, 256, 320]               0
+            Conv2d-7         [-1, 12, 256, 320]           6,492
+       BatchNorm2d-8         [-1, 72, 256, 320]             144
+              ReLU-9         [-1, 72, 256, 320]               0
+           Conv2d-10         [-1, 12, 256, 320]           7,788
+      BatchNorm2d-11         [-1, 84, 256, 320]             168
+             ReLU-12         [-1, 84, 256, 320]               0
+           Conv2d-13         [-1, 12, 256, 320]           9,084
+       DenseBlock-14         [-1, 96, 256, 320]               0
+      BatchNorm2d-15         [-1, 96, 256, 320]             192
+             ReLU-16         [-1, 96, 256, 320]               0
+           Conv2d-17         [-1, 96, 256, 320]           9,312
+        MaxPool2d-18         [-1, 96, 128, 160]               0
+      BatchNorm2d-19         [-1, 96, 128, 160]             192
+             ReLU-20         [-1, 96, 128, 160]               0
+           Conv2d-21         [-1, 12, 128, 160]          10,380
+      BatchNorm2d-22        [-1, 108, 128, 160]             216
+             ReLU-23        [-1, 108, 128, 160]               0
+           Conv2d-24         [-1, 12, 128, 160]          11,676
+      BatchNorm2d-25        [-1, 120, 128, 160]             240
+             ReLU-26        [-1, 120, 128, 160]               0
+           Conv2d-27         [-1, 12, 128, 160]          12,972
+      BatchNorm2d-28        [-1, 132, 128, 160]             264
+             ReLU-29        [-1, 132, 128, 160]               0
+           Conv2d-30         [-1, 12, 128, 160]          14,268
+       DenseBlock-31        [-1, 144, 128, 160]               0
+      BatchNorm2d-32        [-1, 144, 128, 160]             288
+             ReLU-33        [-1, 144, 128, 160]               0
+           Conv2d-34        [-1, 144, 128, 160]          20,880
+        MaxPool2d-35          [-1, 144, 64, 80]               0
+      BatchNorm2d-36          [-1, 144, 64, 80]             288
+             ReLU-37          [-1, 144, 64, 80]               0
+           Conv2d-38           [-1, 12, 64, 80]          15,564
+      BatchNorm2d-39          [-1, 156, 64, 80]             312
+             ReLU-40          [-1, 156, 64, 80]               0
+           Conv2d-41           [-1, 12, 64, 80]          16,860
+      BatchNorm2d-42          [-1, 168, 64, 80]             336
+             ReLU-43          [-1, 168, 64, 80]               0
+           Conv2d-44           [-1, 12, 64, 80]          18,156
+      BatchNorm2d-45          [-1, 180, 64, 80]             360
+             ReLU-46          [-1, 180, 64, 80]               0
+           Conv2d-47           [-1, 12, 64, 80]          19,452
+       DenseBlock-48          [-1, 192, 64, 80]               0
+      BatchNorm2d-49          [-1, 192, 64, 80]             384
+             ReLU-50          [-1, 192, 64, 80]               0
+           Conv2d-51          [-1, 192, 64, 80]          37,056
+        MaxPool2d-52          [-1, 192, 32, 40]               0
+      BatchNorm2d-53          [-1, 192, 32, 40]             384
+             ReLU-54          [-1, 192, 32, 40]               0
+           Conv2d-55           [-1, 12, 32, 40]          20,748
+      BatchNorm2d-56          [-1, 204, 32, 40]             408
+             ReLU-57          [-1, 204, 32, 40]               0
+           Conv2d-58           [-1, 12, 32, 40]          22,044
+      BatchNorm2d-59          [-1, 216, 32, 40]             432
+             ReLU-60          [-1, 216, 32, 40]               0
+           Conv2d-61           [-1, 12, 32, 40]          23,340
+      BatchNorm2d-62          [-1, 228, 32, 40]             456
+             ReLU-63          [-1, 228, 32, 40]               0
+           Conv2d-64           [-1, 12, 32, 40]          24,636
+       DenseBlock-65          [-1, 240, 32, 40]               0
+      BatchNorm2d-66          [-1, 240, 32, 40]             480
+             ReLU-67          [-1, 240, 32, 40]               0
+           Conv2d-68          [-1, 240, 32, 40]          57,840
+        MaxPool2d-69          [-1, 240, 16, 20]               0
+      BatchNorm2d-70          [-1, 240, 16, 20]             480
+             ReLU-71          [-1, 240, 16, 20]               0
+           Conv2d-72           [-1, 12, 16, 20]          25,932
+      BatchNorm2d-73          [-1, 252, 16, 20]             504
+             ReLU-74          [-1, 252, 16, 20]               0
+           Conv2d-75           [-1, 12, 16, 20]          27,228
+      BatchNorm2d-76          [-1, 264, 16, 20]             528
+             ReLU-77          [-1, 264, 16, 20]               0
+           Conv2d-78           [-1, 12, 16, 20]          28,524
+      BatchNorm2d-79          [-1, 276, 16, 20]             552
+             ReLU-80          [-1, 276, 16, 20]               0
+           Conv2d-81           [-1, 12, 16, 20]          29,820
+       DenseBlock-82          [-1, 288, 16, 20]               0
+      BatchNorm2d-83          [-1, 288, 16, 20]             576
+             ReLU-84          [-1, 288, 16, 20]               0
+           Conv2d-85          [-1, 288, 16, 20]          83,232
+        MaxPool2d-86           [-1, 288, 8, 10]               0
+      BatchNorm2d-87           [-1, 288, 8, 10]             576
+             ReLU-88           [-1, 288, 8, 10]               0
+           Conv2d-89            [-1, 12, 8, 10]          31,116
+      BatchNorm2d-90           [-1, 300, 8, 10]             600
+             ReLU-91           [-1, 300, 8, 10]               0
+           Conv2d-92            [-1, 12, 8, 10]          32,412
+      BatchNorm2d-93           [-1, 312, 8, 10]             624
+             ReLU-94           [-1, 312, 8, 10]               0
+           Conv2d-95            [-1, 12, 8, 10]          33,708
+      BatchNorm2d-96           [-1, 324, 8, 10]             648
+             ReLU-97           [-1, 324, 8, 10]               0
+           Conv2d-98            [-1, 12, 8, 10]          35,004
+       DenseBlock-99            [-1, 48, 8, 10]               0
+        Upsample-100           [-1, 48, 16, 20]               0
+          Conv2d-101           [-1, 48, 16, 20]          20,784
+    TransitionUp-102          [-1, 336, 16, 20]               0
+     BatchNorm2d-103          [-1, 336, 16, 20]             672
+            ReLU-104          [-1, 336, 16, 20]               0
+          Conv2d-105           [-1, 12, 16, 20]          36,300
+     BatchNorm2d-106          [-1, 348, 16, 20]             696
+            ReLU-107          [-1, 348, 16, 20]               0
+          Conv2d-108           [-1, 12, 16, 20]          37,596
+     BatchNorm2d-109          [-1, 360, 16, 20]             720
+            ReLU-110          [-1, 360, 16, 20]               0
+          Conv2d-111           [-1, 12, 16, 20]          38,892
+     BatchNorm2d-112          [-1, 372, 16, 20]             744
+            ReLU-113          [-1, 372, 16, 20]               0
+          Conv2d-114           [-1, 12, 16, 20]          40,188
+      DenseBlock-115           [-1, 48, 16, 20]               0
+        Upsample-116           [-1, 48, 32, 40]               0
+          Conv2d-117           [-1, 48, 32, 40]          20,784
+    TransitionUp-118          [-1, 288, 32, 40]               0
+     BatchNorm2d-119          [-1, 288, 32, 40]             576
+            ReLU-120          [-1, 288, 32, 40]               0
+          Conv2d-121           [-1, 12, 32, 40]          31,116
+     BatchNorm2d-122          [-1, 300, 32, 40]             600
+            ReLU-123          [-1, 300, 32, 40]               0
+          Conv2d-124           [-1, 12, 32, 40]          32,412
+     BatchNorm2d-125          [-1, 312, 32, 40]             624
+            ReLU-126          [-1, 312, 32, 40]               0
+          Conv2d-127           [-1, 12, 32, 40]          33,708
+     BatchNorm2d-128          [-1, 324, 32, 40]             648
+            ReLU-129          [-1, 324, 32, 40]               0
+          Conv2d-130           [-1, 12, 32, 40]          35,004
+      DenseBlock-131           [-1, 48, 32, 40]               0
+        Upsample-132           [-1, 48, 64, 80]               0
+          Conv2d-133           [-1, 48, 64, 80]          20,784
+    TransitionUp-134          [-1, 240, 64, 80]               0
+     BatchNorm2d-135          [-1, 240, 64, 80]             480
+            ReLU-136          [-1, 240, 64, 80]               0
+          Conv2d-137           [-1, 12, 64, 80]          25,932
+     BatchNorm2d-138          [-1, 252, 64, 80]             504
+            ReLU-139          [-1, 252, 64, 80]               0
+          Conv2d-140           [-1, 12, 64, 80]          27,228
+     BatchNorm2d-141          [-1, 264, 64, 80]             528
+            ReLU-142          [-1, 264, 64, 80]               0
+          Conv2d-143           [-1, 12, 64, 80]          28,524
+     BatchNorm2d-144          [-1, 276, 64, 80]             552
+            ReLU-145          [-1, 276, 64, 80]               0
+          Conv2d-146           [-1, 12, 64, 80]          29,820
+      DenseBlock-147           [-1, 48, 64, 80]               0
+        Upsample-148         [-1, 48, 128, 160]               0
+          Conv2d-149         [-1, 48, 128, 160]          20,784
+    TransitionUp-150        [-1, 192, 128, 160]               0
+     BatchNorm2d-151        [-1, 192, 128, 160]             384
+            ReLU-152        [-1, 192, 128, 160]               0
+          Conv2d-153         [-1, 12, 128, 160]          20,748
+     BatchNorm2d-154        [-1, 204, 128, 160]             408
+            ReLU-155        [-1, 204, 128, 160]               0
+          Conv2d-156         [-1, 12, 128, 160]          22,044
+     BatchNorm2d-157        [-1, 216, 128, 160]             432
+            ReLU-158        [-1, 216, 128, 160]               0
+          Conv2d-159         [-1, 12, 128, 160]          23,340
+     BatchNorm2d-160        [-1, 228, 128, 160]             456
+            ReLU-161        [-1, 228, 128, 160]               0
+          Conv2d-162         [-1, 12, 128, 160]          24,636
+      DenseBlock-163         [-1, 48, 128, 160]               0
+        Upsample-164         [-1, 48, 256, 320]               0
+          Conv2d-165         [-1, 48, 256, 320]          20,784
+    TransitionUp-166        [-1, 144, 256, 320]               0
+     BatchNorm2d-167        [-1, 144, 256, 320]             288
+            ReLU-168        [-1, 144, 256, 320]               0
+          Conv2d-169         [-1, 12, 256, 320]          15,564
+     BatchNorm2d-170        [-1, 156, 256, 320]             312
+            ReLU-171        [-1, 156, 256, 320]               0
+          Conv2d-172         [-1, 12, 256, 320]          16,860
+     BatchNorm2d-173        [-1, 168, 256, 320]             336
+            ReLU-174        [-1, 168, 256, 320]               0
+          Conv2d-175         [-1, 12, 256, 320]          18,156
+     BatchNorm2d-176        [-1, 180, 256, 320]             360
+            ReLU-177        [-1, 180, 256, 320]               0
+          Conv2d-178         [-1, 12, 256, 320]          19,452
+      DenseBlock-179        [-1, 192, 256, 320]               0
+          Conv2d-180          [-1, 1, 256, 320]             193
+      FCDenseNet-181          [-1, 1, 256, 320]               0
+================================================================
+Total params: 1,374,865
+Trainable params: 1,374,865
+Non-trainable params: 0
+----------------------------------------------------------------
+Input size (MB): 0.94
+Forward/backward pass size (MB): 2579.58
+Params size (MB): 5.24
+Estimated Total Size (MB): 2585.76
+----------------------------------------------------------------
+  0%|          | 0/2000 [00:00<?, ?it/s]ERROR: Unexpected segmentation fault encountered in worker.
+ ERROR: Unexpected segmentation fault encountered in worker.
+ Traceback (most recent call last):
+  File "/users/jluke/.local/lib/python3.6/site-packages/torch/utils/data/dataloader.py", line 990, in _try_get_data
+    data = self._data_queue.get(timeout=timeout)
+  File "/usr/lib64/python3.6/multiprocessing/queues.py", line 104, in get
+    if not self._poll(timeout):
+  File "/usr/lib64/python3.6/multiprocessing/connection.py", line 261, in poll
+    return self._poll(timeout)
+  File "/usr/lib64/python3.6/multiprocessing/connection.py", line 418, in _poll
+    r = wait([self], timeout)
+  File "/usr/lib64/python3.6/multiprocessing/connection.py", line 915, in wait
+    ready = selector.select(timeout)
+  File "/usr/lib64/python3.6/selectors.py", line 376, in select
+    fd_event_list = self._poll.poll(timeout)
+  File "/users/jluke/.local/lib/python3.6/site-packages/torch/utils/data/_utils/signal_handling.py", line 66, in handler
+    _error_if_any_worker_fails()
+RuntimeError: DataLoader worker (pid 66112) is killed by signal: Segmentation fault. 
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/gpfs/data/engn1610/jluke/1610/files_in_use/EndoscopyDepthEstimation-Pytorch-master/train.py", line 249, in <module>
+    enumerate(train_loader):
+  File "/users/jluke/.local/lib/python3.6/site-packages/torch/utils/data/dataloader.py", line 521, in __next__
+    data = self._next_data()
+  File "/users/jluke/.local/lib/python3.6/site-packages/torch/utils/data/dataloader.py", line 1186, in _next_data
+    idx, data = self._get_data()
+  File "/users/jluke/.local/lib/python3.6/site-packages/torch/utils/data/dataloader.py", line 1152, in _get_data
+    success, data = self._try_get_data()
+  File "/users/jluke/.local/lib/python3.6/site-packages/torch/utils/data/dataloader.py", line 1003, in _try_get_data
+    raise RuntimeError('DataLoader worker (pid(s) {}) exited unexpectedly'.format(pids_str)) from e
+RuntimeError: DataLoader worker (pid(s) 66112) exited unexpectedly
+  0%|          | 0/2000 [00:02<?, ?it/s]starting training
+RUNNING
+slurmstepd: error: Detected 52 oom-kill event(s) in step 7169959.batch cgroup. Some of your processes may have been killed by the cgroup out-of-memory handler.
